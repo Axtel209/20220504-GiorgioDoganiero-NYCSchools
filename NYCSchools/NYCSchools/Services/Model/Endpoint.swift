@@ -10,6 +10,12 @@ import Foundation
 struct Endpoint {    
     var path: String
     var queryItems: [URLQueryItem] = []
+    
+    /// avoid initializing, instead use static properties or functions
+    fileprivate init(path: String, queryItems: [URLQueryItem] = []) {
+        self.path = path
+        self.queryItems = queryItems
+    }
 }
 
 // MARK: - Build endpoints
