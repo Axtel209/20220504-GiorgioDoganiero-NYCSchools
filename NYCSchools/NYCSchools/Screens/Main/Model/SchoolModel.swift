@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct School: Codable, Hashable {
+struct SchoolModel: Hashable {
+    // MARK: - Properties
     let identifier = UUID()
     let dbn: String
     let name: String
@@ -15,15 +16,40 @@ struct School: Codable, Hashable {
     let phoneNumber: String
     let email: String?
     let website: String
+    let grades: String
     let totalStudents: Int
-    var street: String
-    var city: String
-    var state: String
-    var zip: String
+    let street: String
+    let city: String
+    let state: String
+    let zip: String
+    private let bus: String
+    private let subway: String
+    private let extracurricular: String?
+    private let sports: String?
     private let latitude: Double
     private let longitude: Double
     
-    // Computed Properties
+    // MARK: - Computed Helper Properties
+    
+    var hasBus: Bool {
+        get { return bus != "N/A" }
+    }
+
+    var hasSubway: Bool {
+        get { return subway != "N/A" }
+    }
+    
+    var hasExtracurricular: Bool {
+        get { return extracurricular != nil }
+    }
+    
+    var hasSposrts: Bool {
+        get {
+            guard let sports = sports else { return false }
+            return !sports.isEmpty
+        }
+    }
+    
     var shortAddress: String {
         get { return "\(city), \(state)"}
     }
@@ -38,6 +64,19 @@ struct School: Codable, Hashable {
         }
     }
     
+    // MARK: - Hashable Conformance
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(identifier)
+    }
+    
+    static func ==(lhs: SchoolModel, rhs: SchoolModel) -> Bool {
+        return lhs.identifier == rhs.identifier
+    }
+}
+
+// MARK: - Codable
+extension SchoolModel: Codable {
     private enum CodingKeys: String, CodingKey {
         case dbn
         case name = "school_name"
@@ -45,7 +84,12 @@ struct School: Codable, Hashable {
         case phoneNumber = "phone_number"
         case email = "school_email"
         case website
+        case grades = "finalgrades"
         case totalStudents = "total_students"
+        case extracurricular = "extracurricular_activities"
+        case sports = "school_sports"
+        case bus
+        case subway
         case latitude
         case longitude
         case street = "primary_address_line_1"
@@ -54,17 +98,6 @@ struct School: Codable, Hashable {
         case zip
     }
     
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(identifier)
-    }
-    
-    static func ==(lhs: School, rhs: School) -> Bool {
-        return lhs.identifier == rhs.identifier
-    }
-}
-
-// MARK: - Decoder
-extension School {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         dbn = try values.decode(String.self, forKey: .dbn)
@@ -73,9 +106,16 @@ extension School {
         phoneNumber = try values.decode(String.self, forKey: .phoneNumber)
         email = try? values.decode(String.self, forKey: .email)
         website = try values.decode(String.self, forKey: .website)
+        grades = try values.decode(String.self, forKey: .grades)
         totalStudents = Int(try values.decode(String.self, forKey: .totalStudents)) ?? 0
-        latitude = Double(try values.decode(String.self, forKey: .latitude)) ?? 0.0
-        longitude = Double(try values.decode(String.self, forKey: .longitude)) ?? 0.0
+        bus = try values.decode(String.self, forKey: .bus)
+        subway = try values.decode(String.self, forKey: .subway)
+        sports = try? values.decode(String.self, forKey: .sports)
+        extracurricular = try? values.decode(String.self, forKey: .extracurricular)
+        let lat = try? values.decode(String.self, forKey: .latitude)
+        let lon = try? values.decode(String.self, forKey: .longitude)
+        latitude = Double(lat ?? "") ?? 0.0
+        longitude = Double(lon ?? "") ?? 0.0
         street = try values.decode(String.self, forKey: .street)
         city = try values.decode(String.self, forKey: .city)
         state = try values.decode(String.self, forKey: .street)

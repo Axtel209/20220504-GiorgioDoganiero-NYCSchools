@@ -12,13 +12,13 @@ final class MainViewModel: ObservableObject {
     enum UIState {
         case isLoading(_ loading: Bool)
         case failed(error: String)
-        case loaded(schools: [School])
+        case loaded(schools: [SchoolModel])
     }
     
     // MARK: - Properties
     @Published private(set) var state: UIState = .isLoading(true)
     private var subscribers: [AnyCancellable] = []
-    private var schools: [School] = []
+    private var schools: [SchoolModel] = []
     
     // MARK: - Setup
     
@@ -33,7 +33,7 @@ final class MainViewModel: ObservableObject {
     func fetchSchools(_ limit: Int = 100, offset: Int = 0) {
         let endpoint = Endpoint.schools(count: limit, offset: offset)
 
-        NetworkService.shared.request(endpoint.url, expecting: [School].self)
+        NetworkService.shared.request(endpoint.url, expecting: [SchoolModel].self)
             .sink { [weak self] completion in
                 guard let self = self else { return }
                 

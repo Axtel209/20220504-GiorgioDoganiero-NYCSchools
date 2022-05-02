@@ -21,7 +21,7 @@
 		A84A8BFF281DE1E500228C12 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A8BFE281DE1E500228C12 /* Loadable.swift */; };
 		A84A8C04281DF52200228C12 /* SchoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A8C03281DF52200228C12 /* SchoolTableViewCell.swift */; };
 		A84A8C06281DFE3500228C12 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A8C05281DFE3500228C12 /* NetworkService.swift */; };
-		A84A8C0B281E067E00228C12 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A8C0A281E067E00228C12 /* School.swift */; };
+		A84A8C0B281E067E00228C12 /* SchoolModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A8C0A281E067E00228C12 /* SchoolModel.swift */; };
 		A84A8C0F281F089100228C12 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A8C0E281F089100228C12 /* Endpoint.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +42,7 @@
 		A84A8BFE281DE1E500228C12 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		A84A8C03281DF52200228C12 /* SchoolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolTableViewCell.swift; sourceTree = "<group>"; };
 		A84A8C05281DFE3500228C12 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		A84A8C0A281E067E00228C12 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
+		A84A8C0A281E067E00228C12 /* SchoolModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolModel.swift; sourceTree = "<group>"; };
 		A84A8C0E281F089100228C12 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,7 +180,7 @@
 		A84A8C0C281E068200228C12 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A84A8C0A281E067E00228C12 /* School.swift */,
+				A84A8C0A281E067E00228C12 /* SchoolModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -270,7 +270,7 @@
 				A84A8BED281DDA4500228C12 /* ViewControllerBindable.swift in Sources */,
 				A84A8BFF281DE1E500228C12 /* Loadable.swift in Sources */,
 				A84A8BF2281DDAD400228C12 /* MainView.swift in Sources */,
-				A84A8C0B281E067E00228C12 /* School.swift in Sources */,
+				A84A8C0B281E067E00228C12 /* SchoolModel.swift in Sources */,
 				A84A8BEA281DDA1900228C12 /* MVVMViewController.swift in Sources */,
 				A84A8BD7281DD94000228C12 /* MainController.swift in Sources */,
 				A84A8BD3281DD94000228C12 /* AppDelegate.swift in Sources */,

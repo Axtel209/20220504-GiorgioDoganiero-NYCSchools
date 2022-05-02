@@ -56,8 +56,8 @@ class MainController: MVVMViewController<MainViewModel, MainView>, Loadable {
 
 // MARK: - UITableViewDataSource
 extension MainController {
-    typealias DataSource = UITableViewDiffableDataSource<Int, School>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Int, School>
+    typealias DataSource = UITableViewDiffableDataSource<Int, SchoolModel>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Int, SchoolModel>
     
     private func configureDataSource() {
         dataSource = UITableViewDiffableDataSource(tableView: customView.tableView,
@@ -69,7 +69,7 @@ extension MainController {
         })
     }
     
-    private func updateSchools(_ schools: [School], animated: Bool) {
+    private func updateSchools(_ schools: [SchoolModel], animated: Bool) {
         var snapshot =  Snapshot()
         snapshot.appendSections([0])
         snapshot.appendItems(schools)
