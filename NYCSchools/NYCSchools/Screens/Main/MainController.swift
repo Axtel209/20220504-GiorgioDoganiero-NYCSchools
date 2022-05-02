@@ -8,10 +8,11 @@
 import UIKit
 import Combine
 
-class MainController: MVVMViewController<MainViewModel, MainView> {
+class MainController: MVVMViewController<MainViewModel, MainView>, Loadable {
     // MARK: - Properties
     private var subscribers: [AnyCancellable] = []
     private var dataSource: DataSource!
+    var loadingOverlay: UIView?
     
     // MARK: - Lifecycle
     
@@ -40,7 +41,11 @@ class MainController: MVVMViewController<MainViewModel, MainView> {
     private func updateUIState(_ state: MainViewModel.UIState) {
         switch state {
         case .isLoading(let isLoading):
-            print(isLoading)
+            if isLoading {
+                showLoadingOverlay()
+            } else {
+                hideLoadingOverlay()
+            }
         case .failed(let error):
             print(error)
         case .loaded(let schools):

@@ -18,6 +18,7 @@
 		A84A8BF4281DDADC00228C12 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A8BF3281DDADC00228C12 /* MainViewModel.swift */; };
 		A84A8BFB281DE01100228C12 /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A8BFA281DE01100228C12 /* UITableView+Register.swift */; };
 		A84A8BFD281DE08100228C12 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A8BFC281DE08100228C12 /* ReusableView.swift */; };
+		A84A8BFF281DE1E500228C12 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A8BFE281DE1E500228C12 /* Loadable.swift */; };
 		A84A8C04281DF52200228C12 /* SchoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A8C03281DF52200228C12 /* SchoolTableViewCell.swift */; };
 		A84A8C06281DFE3500228C12 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A8C05281DFE3500228C12 /* NetworkService.swift */; };
 		A84A8C0B281E067E00228C12 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84A8C0A281E067E00228C12 /* School.swift */; };
@@ -38,6 +39,7 @@
 		A84A8BF3281DDADC00228C12 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		A84A8BFA281DE01100228C12 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
 		A84A8BFC281DE08100228C12 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		A84A8BFE281DE1E500228C12 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		A84A8C03281DF52200228C12 /* SchoolTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolTableViewCell.swift; sourceTree = "<group>"; };
 		A84A8C05281DFE3500228C12 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		A84A8C0A281E067E00228C12 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				A84A8C06281DFE3500228C12 /* NetworkService.swift in Sources */,
 				A84A8C04281DF52200228C12 /* SchoolTableViewCell.swift in Sources */,
 				A84A8BED281DDA4500228C12 /* ViewControllerBindable.swift in Sources */,
+				A84A8BFF281DE1E500228C12 /* Loadable.swift in Sources */,
 				A84A8BF2281DDAD400228C12 /* MainView.swift in Sources */,
 				A84A8C0B281E067E00228C12 /* School.swift in Sources */,
 				A84A8BEA281DDA1900228C12 /* MVVMViewController.swift in Sources */,
