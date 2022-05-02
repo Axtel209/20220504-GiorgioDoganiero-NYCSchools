@@ -24,8 +24,9 @@ class MainController: MVVMViewController<MainViewModel, MainView>, Loadable {
     }
     
     private func setupViews() {
-        customView.tableView.prefetchDataSource = self
         configureDataSource()
+        customView.tableView.prefetchDataSource = self
+        customView.tableView.delegate = self
     }
     
     private func bindViewModel() {
@@ -47,7 +48,7 @@ class MainController: MVVMViewController<MainViewModel, MainView>, Loadable {
                 hideLoadingOverlay()
             }
         case .failed(let error):
-            print(error)
+            print("#### error: \(error)")
         case .loaded(let schools):
             updateSchools(schools, animated: true)
         }
@@ -89,5 +90,22 @@ extension MainController: UITableViewDataSourcePrefetching {
             viewModel.fetchSchools(offset: offset)
         }
     }
+    
+    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        // TODO: Implement a prefetch canceling, not a deal breaker for MVP
+    }
 }
 
+// MARK: - UITableViewDelegate
+extension MainController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO: Handle error case
+        guard let selectedSchool = dataSource.itemIdentifier(for: indexPath) else { return }
+        
+        let viewModel = SchoolDetailsViewModel(selectedSchool)
+        let controller = SchoolDetailsController(viewModel)
+        controller.modalPresentationStyle = .fullScreen
+        
+        present(controller, animated: true)
+    }
+}
