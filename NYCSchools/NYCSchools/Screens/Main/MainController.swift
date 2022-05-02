@@ -64,7 +64,7 @@ extension MainController {
                                                    cellProvider: { tableView, indexPath, school in
             let cell: SchoolTableViewCell = tableView.dequeueReusableCell(for: indexPath)
             cell.backgroundColor = .blue
-            cell.titelLabel.text = school.schoolName
+            cell.titelLabel.text = school.name
             return cell
         })
     }

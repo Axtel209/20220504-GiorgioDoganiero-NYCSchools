@@ -16,7 +16,6 @@ struct NetworkService {
     
     func request<T: Codable>(_ url: URL, expecting: T.Type) -> AnyPublisher<T, Error> {
         let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
                 
         return URLSession.shared.dataTaskPublisher(for: url)
                                 .mapError { $0 as Error }
