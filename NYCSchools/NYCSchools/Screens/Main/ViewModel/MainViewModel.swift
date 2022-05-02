@@ -6,10 +6,19 @@
 //
 
 import Foundation
+import Combine
 
-final class MainViewModel {
-    // MARK: - Properties
+final class MainViewModel: ObservableObject {
+    enum UIState {
+        case isLoading(_ loading: Bool)
+        case failed(error: String)
+        case loaded(schools: [School])
+    }
     
+    // MARK: - Properties
+    @Published private(set) var state: UIState = .isLoading(true)
+    private var subscribers: [AnyCancellable] = []
+    private var schools: [School] = []
     
     // MARK: - Setup
     
@@ -17,22 +26,27 @@ final class MainViewModel {
         fetchSchools()
     }
     
-    /// Return all schools.
+    /// Return schools.
     /// - Parameters:
     ///   - limit: The number of results to return.
     ///   - offset: The index where to start the returned list of results.
-    ///   - order: The order results are return.
-    func fetchSchools(_ limit: Int = 5, offset: Int = 0, order: String = ":id") {
-        // Given more time I would prefer to make querys more dynamic
-        let query = ["$limit": String(limit), "$offset": String(offset), "$order": order]
-        
-        NetworkService.shared.request(.schools, query: query, expecting: [School].self) { result in
-            switch result {
-            case .success(let schools):
-                print(schools)
-            case .failure(let error):
-                print(error)
+    func fetchSchools(_ limit: Int = 100, offset: Int = 0) {
+        let endpoint = Endpoint.schools(count: limit, offset: offset)
+
+        NetworkService.shared.request(endpoint.url, expecting: [School].self)
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                
+                self.state = .isLoading(false)
+                if case .failure(let error) = completion {
+                    self.state = .failed(error: error.localizedDescription)
+                }
+            } receiveValue: { [weak self] results in
+                guard let self = self else { return }
+                
+                self.schools.append(contentsOf: results)
+                self.state = .loaded(schools: self.schools)
             }
-        }
+            .store(in: &subscribers)
     }
 }
