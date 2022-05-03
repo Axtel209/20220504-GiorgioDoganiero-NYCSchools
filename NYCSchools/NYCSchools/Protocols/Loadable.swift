@@ -14,19 +14,19 @@ protocol Loadable: AnyObject {
 extension Loadable where Self: UIViewController {
     private func newLoadingOverlay() -> UIView {
         let backgroundView = UIView(frame: view.frame)
-        backgroundView.backgroundColor = .lightGray
+        backgroundView.backgroundColor = .systemGray4
         backgroundView.alpha = 0.3
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
         
         let spinnerBackground = UIView()
-        spinnerBackground.backgroundColor = .white
+        spinnerBackground.backgroundColor = .systemBackground
         spinnerBackground.layer.cornerRadius = 10
         spinnerBackground.layer.masksToBounds = true
         spinnerBackground.translatesAutoresizingMaskIntoConstraints = false
         backgroundView.addSubview(spinnerBackground)
         
         let spinner = UIActivityIndicatorView(style: .large)
-        spinner.color = .darkGray
+        spinner.color = .systemGray
         spinner.translatesAutoresizingMaskIntoConstraints = false
         spinner.startAnimating()
         spinnerBackground.addSubview(spinner)

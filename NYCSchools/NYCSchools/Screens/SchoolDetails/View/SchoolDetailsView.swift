@@ -33,6 +33,6 @@ class SchoolDetailsView: UIView {
     }
     
     private func setupThemeColor() {
-        backgroundColor = .white
+        backgroundColor = .systemBackground
     }
 }

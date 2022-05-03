@@ -49,7 +49,7 @@ class MainView: UIView {
     }
     
     private func setupThemeColor() {
-        backgroundColor = .white
+        backgroundColor = .systemBackground
         tableView.backgroundColor = .clear
     }
 }
