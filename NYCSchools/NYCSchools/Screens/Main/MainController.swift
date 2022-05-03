@@ -64,8 +64,11 @@ extension MainController {
         dataSource = UITableViewDiffableDataSource(tableView: customView.tableView,
                                                    cellProvider: { tableView, indexPath, school in
             let cell: SchoolTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-            cell.backgroundColor = .blue
-            cell.titelLabel.text = school.name
+            cell.schoolNameLabel.text = school.name
+            cell.addressLabel.text = school.shortAddress
+            cell.gradesLabel.text = school.levels
+            cell.busOptionsView.isSelected = school.hasBus
+            cell.subwayOptionsView.isSelected = school.hasSubway
             return cell
         })
     }

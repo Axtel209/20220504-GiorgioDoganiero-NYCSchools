@@ -16,12 +16,13 @@ struct SchoolModel: Hashable {
     let phoneNumber: String
     let email: String?
     let website: String
-    let grades: String
+    
     let totalStudents: Int
     let street: String
     let city: String
     let state: String
     let zip: String
+    private let grades: String
     private let bus: String
     private let subway: String
     private let extracurricular: String?
@@ -30,6 +31,10 @@ struct SchoolModel: Hashable {
     private let longitude: Double
     
     // MARK: - Computed Helper Properties
+    
+    var levels: String {
+        get { return "Levels: \(grades)" }
+    }
     
     var hasBus: Bool {
         get { return bus != "N/A" }
@@ -118,7 +123,7 @@ extension SchoolModel: Codable {
         longitude = Double(lon ?? "") ?? 0.0
         street = try values.decode(String.self, forKey: .street)
         city = try values.decode(String.self, forKey: .city)
-        state = try values.decode(String.self, forKey: .street)
+        state = try values.decode(String.self, forKey: .state)
         zip = try values.decode(String.self, forKey: .zip)
     }
 }
