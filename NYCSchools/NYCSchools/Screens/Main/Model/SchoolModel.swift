@@ -16,12 +16,12 @@ struct SchoolModel: Hashable {
     let phoneNumber: String
     let email: String?
     let website: String
-    
     let totalStudents: Int
     let street: String
     let city: String
     let state: String
     let zip: String
+    var satScores: SATScoreModel?
     private let grades: String
     private let bus: String
     private let subway: String

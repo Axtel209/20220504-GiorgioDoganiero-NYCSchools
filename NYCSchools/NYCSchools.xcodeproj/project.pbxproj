@@ -28,7 +28,7 @@
 		A8F50B9428201B3A0008BDA6 /* SchoolDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F50B9328201B3A0008BDA6 /* SchoolDetailsController.swift */; };
 		A8F50B9628201B430008BDA6 /* SchoolDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F50B9528201B430008BDA6 /* SchoolDetailsView.swift */; };
 		A8F50B9828201B4C0008BDA6 /* SchoolDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F50B9728201B4C0008BDA6 /* SchoolDetailsViewModel.swift */; };
-		A8F50B9A28201D9E0008BDA6 /* SATScoresModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F50B9928201D9E0008BDA6 /* SATScoresModel.swift */; };
+		A8F50B9A28201D9E0008BDA6 /* SATScoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F50B9928201D9E0008BDA6 /* SATScoreModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +55,7 @@
 		A8F50B9328201B3A0008BDA6 /* SchoolDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsController.swift; sourceTree = "<group>"; };
 		A8F50B9528201B430008BDA6 /* SchoolDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsView.swift; sourceTree = "<group>"; };
 		A8F50B9728201B4C0008BDA6 /* SchoolDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsViewModel.swift; sourceTree = "<group>"; };
-		A8F50B9928201D9E0008BDA6 /* SATScoresModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SATScoresModel.swift; sourceTree = "<group>"; };
+		A8F50B9928201D9E0008BDA6 /* SATScoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SATScoreModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,7 +246,7 @@
 		A8F50B9D28202A6C0008BDA6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A8F50B9928201D9E0008BDA6 /* SATScoresModel.swift */,
+				A8F50B9928201D9E0008BDA6 /* SATScoreModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -336,7 +336,7 @@
 				A84A8BD7281DD94000228C12 /* MainController.swift in Sources */,
 				A84A8BD3281DD94000228C12 /* AppDelegate.swift in Sources */,
 				A8F50B9628201B430008BDA6 /* SchoolDetailsView.swift in Sources */,
-				A8F50B9A28201D9E0008BDA6 /* SATScoresModel.swift in Sources */,
+				A8F50B9A28201D9E0008BDA6 /* SATScoreModel.swift in Sources */,
 				A84A8BFB281DE01100228C12 /* UITableView+Register.swift in Sources */,
 				A84A8C0F281F089100228C12 /* Endpoint.swift in Sources */,
 				A8F50B9428201B3A0008BDA6 /* SchoolDetailsController.swift in Sources */,
