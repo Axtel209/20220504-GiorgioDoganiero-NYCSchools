@@ -18,7 +18,7 @@ struct Endpoint {
     }
 }
 
-// MARK: - Build endpoints
+// MARK: - Build endpoint
 extension Endpoint {
     var url: URL {
         var components = URLComponents()
@@ -35,7 +35,7 @@ extension Endpoint {
     }
 }
 
-// MARK: - Schools endpoints
+// MARK: - Schools endpoint
 extension Endpoint {
     private static var schoolPath = "/s3k6-pzi2.json"
     
@@ -52,7 +52,7 @@ extension Endpoint {
         let queryItems = [
             URLQueryItem(name: "$limit", value: "\(count)"),
             URLQueryItem(name: "$offset", value: "\(offset)"),
-            URLQueryItem(name: "$order", value: ":id")
+            URLQueryItem(name: "$order", value: "dbn")
         ]
         
         return Endpoint(path: schoolPath, queryItems: queryItems)
@@ -69,7 +69,7 @@ extension Endpoint {
     }
 }
 
-// MARK: - SAT Results endpoints
+// MARK: - SAT Results endpoint
 extension Endpoint {
     private static var satPath = "/f9bf-2cp4.json"
     
@@ -78,7 +78,21 @@ extension Endpoint {
         return Endpoint(path: satPath)
     }
     
-    /// Return school SAT Results
+    /// Return all sat scores ordered by id
+    /// - Parameters:
+    ///   - count: The number of results to return.
+    ///   - offset: The index where to start the returned list of results.
+    static func sat(count: Int, offset: Int) -> Self {
+        let queryItems = [
+            URLQueryItem(name: "$limit", value: "\(count)"),
+            URLQueryItem(name: "$offset", value: "\(offset)"),
+            URLQueryItem(name: "$order", value: "dbn")
+        ]
+        
+        return Endpoint(path: satPath, queryItems: queryItems)
+    }
+    
+    /// Return SAT results for school
     /// - Parameters:
     ///   - schoolId: The dbn id of the school
     static func sat(_ schoolId: String) -> Self {
