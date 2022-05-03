@@ -50,21 +50,21 @@ class SchoolTableViewCell: UITableViewCell, ReusableView {
         stack.axis = .vertical
         stack.distribution = .equalSpacing
         stack.alignment = .leading
-        stack.spacing = 8
+        stack.spacing = 4
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
     
     private(set) var busOptionsView: CheckmarkOptionView = {
         let view = CheckmarkOptionView()
-        view.optionLabel.text = "Bus"
+        view.optionLabel.text = "school_card_bus".localized
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private(set) var subwayOptionsView: CheckmarkOptionView = {
         let view = CheckmarkOptionView()
-        view.optionLabel.text = "Subway"
+        view.optionLabel.text = "school_card_subway".localized
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

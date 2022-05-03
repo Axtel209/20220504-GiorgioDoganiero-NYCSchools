@@ -29,6 +29,8 @@
 		A8F50B9628201B430008BDA6 /* SchoolDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F50B9528201B430008BDA6 /* SchoolDetailsView.swift */; };
 		A8F50B9828201B4C0008BDA6 /* SchoolDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F50B9728201B4C0008BDA6 /* SchoolDetailsViewModel.swift */; };
 		A8F50B9A28201D9E0008BDA6 /* SATScoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F50B9928201D9E0008BDA6 /* SATScoreModel.swift */; };
+		A8F50BA22821CB990008BDA6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A8F50BA12821CB990008BDA6 /* Localizable.strings */; };
+		A8F50BA42821CCD70008BDA6 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F50BA32821CCD70008BDA6 /* String+Localized.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		A8F50B9528201B430008BDA6 /* SchoolDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsView.swift; sourceTree = "<group>"; };
 		A8F50B9728201B4C0008BDA6 /* SchoolDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsViewModel.swift; sourceTree = "<group>"; };
 		A8F50B9928201D9E0008BDA6 /* SATScoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SATScoreModel.swift; sourceTree = "<group>"; };
+		A8F50BA12821CB990008BDA6 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		A8F50BA32821CCD70008BDA6 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				A84A8BDB281DD94100228C12 /* Assets.xcassets */,
+				A8F50BA02821CB5E0008BDA6 /* Resources */,
 				A84A8BF8281DDD5000228C12 /* Application */,
 				A84A8C07281E04F600228C12 /* Services */,
 				A84A8BE7281DD9AE00228C12 /* Extensions */,
@@ -122,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				A84A8BFA281DE01100228C12 /* UITableView+Register.swift */,
+				A8F50BA32821CCD70008BDA6 /* String+Localized.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -204,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				A84A8C0A281E067E00228C12 /* SchoolModel.swift */,
+				A8F50B9928201D9E0008BDA6 /* SATScoreModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -220,7 +227,6 @@
 			isa = PBXGroup;
 			children = (
 				A8F50B9328201B3A0008BDA6 /* SchoolDetailsController.swift */,
-				A8F50B9D28202A6C0008BDA6 /* Model */,
 				A8F50B9C28202A660008BDA6 /* View */,
 				A8F50B9B28202A5A0008BDA6 /* ViewModel */,
 			);
@@ -243,12 +249,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		A8F50B9D28202A6C0008BDA6 /* Model */ = {
+		A8F50BA02821CB5E0008BDA6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A8F50B9928201D9E0008BDA6 /* SATScoreModel.swift */,
+				A8F50BA12821CB990008BDA6 /* Localizable.strings */,
 			);
-			path = Model;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A84A8BDF281DD94100228C12 /* LaunchScreen.storyboard in Resources */,
+				A8F50BA22821CB990008BDA6 /* Localizable.strings in Resources */,
 				A84A8BDC281DD94100228C12 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +346,7 @@
 				A8F50B9A28201D9E0008BDA6 /* SATScoreModel.swift in Sources */,
 				A84A8BFB281DE01100228C12 /* UITableView+Register.swift in Sources */,
 				A84A8C0F281F089100228C12 /* Endpoint.swift in Sources */,
+				A8F50BA42821CCD70008BDA6 /* String+Localized.swift in Sources */,
 				A8F50B9428201B3A0008BDA6 /* SchoolDetailsController.swift in Sources */,
 				A84A8BD5281DD94000228C12 /* SceneDelegate.swift in Sources */,
 			);

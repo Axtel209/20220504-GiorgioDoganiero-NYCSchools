@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  NYCSchools
+
+  Created by Giorgio Doganiero on 5/3/22.
+  
+*/
+
+/*
+School Cards
+*/
+
+"school_card_bus" = "Bus";
+"school_card_subway" = "Subway";
