@@ -56,7 +56,7 @@ struct SchoolModel: Hashable {
     }
     
     var shortAddress: String {
-        get { return "\(city), \(state)"}
+        get { return "\(street), \(city)"}
     }
     
     var address: String {
