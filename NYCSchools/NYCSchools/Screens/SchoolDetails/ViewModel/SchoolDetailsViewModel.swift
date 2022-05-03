@@ -6,20 +6,27 @@
 //
 
 import Foundation
+import Combine
 
-class SchoolDetailsViewModel {
-    // MARK: - Properties
-    let school: SchoolModel
-    
-    // MARK: - Lifecycle
-    
-    init(_ school: SchoolModel) {
-        self.school = school
-        fetchSatScores()
+class SchoolDetailsViewModel: ObservableObject {
+    enum UIState {
+        case ready(school: SchoolModel)
     }
     
-    private func fetchSatScores() {
-        let endpoint = Endpoint.sat(school.dbn)
-        NetworkService.shared.request(endpoint.url, expecting: SchoolModel.self)
+    // MARK: - Properties
+    @Published private(set) var state: UIState!
+    private var subscribers: [AnyCancellable] = []
+    private var school: SchoolModel! {
+        didSet { state = .ready(school: school) }
+    }
+    
+    // MARK: - Lifecycle
+    init(_ school: SchoolModel) {
+        setSchool(newValue: school)
+    }
+    
+    // A workaround to make sure the property didSet its called on initialization
+    private func setSchool(newValue: SchoolModel) {
+        self.school = newValue
     }
 }
