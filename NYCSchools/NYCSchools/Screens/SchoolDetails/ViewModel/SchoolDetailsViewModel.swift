@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import MapKit
 
 class SchoolDetailsViewModel: ObservableObject {
     enum UIState {
@@ -28,5 +29,22 @@ class SchoolDetailsViewModel: ObservableObject {
     // A workaround to make sure the property didSet its called on initialization
     private func setSchool(newValue: SchoolModel) {
         self.school = newValue
+    }
+    
+    // MARK: - Helpers
+    
+    /// open school address in Apple maps
+    func openMaps() {
+        let regionDistance: CLLocationDistance = 1000.0
+        let coordinates: CLLocationCoordinate2D = .init(latitude: school.coordinates.latitude, longitude: school.coordinates.longitude)
+        let regionSpan: MKCoordinateRegion = .init(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = school.name
+        mapItem.openInMaps(launchOptions: options)
     }
 }

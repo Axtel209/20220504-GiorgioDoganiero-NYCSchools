@@ -55,5 +55,6 @@ class SchoolDetailsController: MVVMViewController<SchoolDetailsViewModel, School
     }
     
     @objc private func addressButtonAction(_ sender: UIButton) {
+        viewModel.openMaps()
     }
 }
