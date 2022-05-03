@@ -81,9 +81,20 @@ class SchoolTableViewCell: UITableViewCell, ReusableView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /// modify the highlighted cell behavior
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        
+        containerView.alpha = highlighted ? 0.4 : 1.0
+    }
+    
+    // MARK: - Setup
+    
     private func setupViews() {
         // Avoid shadow clipping
         backgroundColor = .clear
+        selectionStyle =  .none
+        
         
         addSubview(containerView)
         containerView.addSubview(schoolNameLabel)
