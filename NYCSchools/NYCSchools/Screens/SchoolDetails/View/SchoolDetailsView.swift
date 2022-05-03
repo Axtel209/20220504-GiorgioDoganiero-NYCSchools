@@ -10,16 +10,38 @@ import UIKit
 class SchoolDetailsView: UIView {
     // MARK: - Views
     private(set) var closeButton: UIButton = {
+        var config = UIButton.Configuration.plain()
+        config.buttonSize = .small
+        config.baseForegroundColor = .white
+        config.image = UIImage(systemName: "xmark")
+        
+        let button = UIButton(type: .system)
+        button.configuration = config
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private(set) var titleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.numberOfLines = 2
+        label.font = UIFont.preferredFont(forTextStyle: .title1)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private(set) var addressButton: UIButton = {
         var config = UIButton.Configuration.filled()
         config.buttonSize = .small
-        config.cornerStyle = .capsule
         config.baseBackgroundColor = .white
-        config.baseForegroundColor = .black
-        config.image = UIImage(systemName: "xmark")
-        config.imagePlacement = .all
-        config.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8)
+        config.baseForegroundColor = .label
+        config.image = UIImage(systemName: "mappin")
+        config.imagePlacement = .leading
+        config.imagePadding = 4
+        config.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 12)
         
-        let button = UIButton(configuration: config)
+        let button = UIButton(type: .system)
+        button.configuration = config
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -50,6 +72,8 @@ class SchoolDetailsView: UIView {
         // View layouts
         addSubview(headerBanner)
         headerBanner.addSubview(closeButton)
+        headerBanner.addSubview(titleLabel)
+        headerBanner.addSubview(addressButton)
         
         NSLayoutConstraint.activate([
             headerBanner.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.35),
@@ -59,6 +83,14 @@ class SchoolDetailsView: UIView {
             
             closeButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             closeButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            
+            titleLabel.leadingAnchor.constraint(equalTo: headerBanner.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(equalTo: headerBanner.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            titleLabel.bottomAnchor.constraint(equalTo: addressButton.topAnchor, constant: -8),
+            
+            addressButton.leadingAnchor.constraint(equalTo: headerBanner.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            addressButton.trailingAnchor.constraint(lessThanOrEqualTo: headerBanner.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            addressButton.bottomAnchor.constraint(equalTo: headerBanner.bottomAnchor, constant: -16),
         ])
     }
     

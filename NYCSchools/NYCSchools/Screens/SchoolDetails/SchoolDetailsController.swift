@@ -24,6 +24,7 @@ class SchoolDetailsController: MVVMViewController<SchoolDetailsViewModel, School
     // MARK: - Setup
     private func setupViews() {
         customView.closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
+        customView.addressButton.addTarget(self, action: #selector(addressButtonAction), for: .touchUpInside)
     }
     
     private func bindViewModel() {
@@ -44,11 +45,15 @@ class SchoolDetailsController: MVVMViewController<SchoolDetailsViewModel, School
         switch state {
         case .ready(let school):
             customView.titleLabel.text = school.name
+            customView.addressButton.configuration?.title = school.shortAddress
         }
     }
     
     // MARK: - Actions
     @objc private func closeButtonAction(_ sender: UIButton) {
         dismiss(animated: true)
+    }
+    
+    @objc private func addressButtonAction(_ sender: UIButton) {
     }
 }
