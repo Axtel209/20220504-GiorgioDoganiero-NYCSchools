@@ -15,5 +15,17 @@ class SchoolDetailsController: MVVMViewController<SchoolDetailsViewModel, School
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupViews()
+    }
+    
+    // MARK: - Setup
+    private func setupViews() {
+        customView.closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
+    }
+    
+    // MARK: - Actions
+    @objc private func closeButtonAction(_ sender: UIButton) {
+        dismiss(animated: true)
     }
 }
