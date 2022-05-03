@@ -34,12 +34,12 @@ class MainController: MVVMViewController<MainViewModel, MainView>, Loadable {
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] state in
                 guard let self = self else { return }
-                self.updateUIState(state)
+                self.updateUI(for: state)
             })
             .store(in: &subscribers)
     }
     
-    private func updateUIState(_ state: MainViewModel.UIState) {
+    private func updateUI(for state: MainViewModel.UIState) {
         switch state {
         case .isLoading(let isLoading):
             if isLoading {
