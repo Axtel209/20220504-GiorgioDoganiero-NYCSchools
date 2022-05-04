@@ -6,9 +6,23 @@
   
 */
 
-/*
-School Cards
-*/
+/* Common */
+
+"common_retry" = "Retry";
+
+/* School Cards */
 
 "school_card_bus" = "Bus";
 "school_card_subway" = "Subway";
+
+/* School Detail*/
+
+"school_detail_section_education" = "Education";
+"school_detail_item_levels" = "Levels: %@";
+"school_detail_item_students" = "Students: %d";
+"school_detail_section_sat" = "SAT";
+"school_detail_item_no_scores" = "No SAT scores available.";
+"school_detail_item_critical_reading" = "Critical Reading Avg: %d";
+"school_detail_item_math" = "Math Avg: %d";
+"school_detail_item_writing" = "Writing Avg: %d";
+"school_detail_contact_us" = "Contact Us";

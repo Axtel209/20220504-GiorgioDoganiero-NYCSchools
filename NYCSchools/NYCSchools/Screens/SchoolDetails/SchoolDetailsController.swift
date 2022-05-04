@@ -46,6 +46,19 @@ class SchoolDetailsController: MVVMViewController<SchoolDetailsViewModel, School
         case .ready(let school):
             customView.titleLabel.text = school.name
             customView.addressButton.configuration?.title = school.shortAddress
+            customView.descriptionTextView.text = school.description
+            customView.gradesLabel.text = String(format: "school_detail_item_levels".localized, school.grades)
+            customView.studentsLabel.text = String(format: "school_detail_item_students".localized, school.totalStudents)
+            customView.websiteButton.configuration?.title = school.website
+            
+            if let sat = school.satScores {
+                customView.criticalReadingLabel.text = String(format: "school_detail_item_critical_reading".localized, sat.readingAvgScore)
+                customView.mathLabel.text = String(format: "school_detail_item_math".localized, sat.mathAvgScore)
+                customView.writingLabel.text = String(format: "school_detail_item_writing".localized, sat.writingAvgScore)
+            } else {
+                customView.criticalReadingLabel.text = "school_detail_item_no_scores".localized
+            }
+            
         }
     }
     

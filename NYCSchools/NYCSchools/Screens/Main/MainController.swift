@@ -66,7 +66,7 @@ extension MainController {
             let cell: SchoolTableViewCell = tableView.dequeueReusableCell(for: indexPath)
             cell.schoolNameLabel.text = school.name
             cell.addressLabel.text = school.shortAddress
-            cell.gradesLabel.text = school.levels
+            cell.gradesLabel.text = String(format:"school_detail_item_levels".localized, school.grades)
             cell.busOptionsView.isSelected = school.hasBus
             cell.subwayOptionsView.isSelected = school.hasSubway
             return cell
