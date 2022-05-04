@@ -14,6 +14,10 @@
 "common_email" = "Email";
 "common_website" = "Website";
 
+/* School */
+
+"school_title_nyc_schools" = "NYC Schools";
+
 /* School Cards */
 
 "school_card_bus" = "Bus";
