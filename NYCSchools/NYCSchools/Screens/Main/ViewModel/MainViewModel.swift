@@ -37,6 +37,7 @@ final class MainViewModel: ObservableObject {
         let schoolsData = fetchSchoolsData(limit, offset: offset)
         let satScoresData = fetchSatScoresData(limit, offset: offset)
         
+        self.state = .isLoading(true)
         Publishers.Zip(schoolsData, satScoresData)
             .sink { [weak self] completion in
                 guard let self = self else { return }

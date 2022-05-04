@@ -95,7 +95,6 @@ class SchoolTableViewCell: UITableViewCell, ReusableView {
         backgroundColor = .clear
         selectionStyle =  .none
         
-        
         addSubview(containerView)
         containerView.addSubview(schoolNameLabel)
         containerView.addSubview(addressLabel)

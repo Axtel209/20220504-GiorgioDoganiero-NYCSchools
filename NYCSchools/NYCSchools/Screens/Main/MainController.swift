@@ -50,7 +50,9 @@ class MainController: MVVMViewController<MainViewModel, MainView>, Loadable {
         case .failed(let error):
             print("#### error: \(error)")
         case .loaded(let schools):
-            updateSchools(schools, animated: true)
+            // avoid animation on initial load
+            let animated = dataSource.snapshot().numberOfItems > 0
+            updateSchools(schools, animated: animated)
         }
     }
 }
