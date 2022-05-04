@@ -65,8 +65,9 @@ extension Loadable where Self: UIViewController {
     }
     
     func hideLoadingOverlay() {
+        // TODO: Given more time, would like to add a delay to avoid flickering
         DispatchQueue.main.async {
-            guard let _ = self.loadingOverlay else { return }
+            guard self.loadingOverlay != nil else { return }
             self.loadingOverlay?.removeFromSuperview()
             self.loadingOverlay = nil
         }

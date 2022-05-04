@@ -8,11 +8,13 @@
 import UIKit
 import Combine
 
-class MainController: MVVMViewController<MainViewModel, MainView>, Loadable {
+class MainController: MVVMViewController<MainViewModel, MainView>, Loadable, ErrorState {
     // MARK: - Properties
     private var subscribers: [AnyCancellable] = []
     private var dataSource: DataSource!
     var loadingOverlay: UIView?
+    var errorOverlay: UIView?
+    var errorAction: UIAction?
     
     // MARK: - Lifecycle
     
@@ -48,7 +50,11 @@ class MainController: MVVMViewController<MainViewModel, MainView>, Loadable {
                 hideLoadingOverlay()
             }
         case .failed(let error):
-            print("#### error: \(error)")
+            showEmptyStateView(message: error)
+            errorAction = UIAction() { [weak self] _ in
+                self?.hideEmptyStateView()
+                self?.viewModel.fetchSchools()
+            }
         case .loaded(let schools):
             // avoid animation on initial load
             let animated = dataSource.snapshot().numberOfItems > 0
