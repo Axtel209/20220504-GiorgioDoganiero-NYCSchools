@@ -9,6 +9,10 @@
 /* Common */
 
 "common_retry" = "Retry";
+"common_cancel" = "Cancel";
+"common_call" = "Call";
+"common_email" = "Email";
+"common_website" = "Website";
 
 /* School Cards */
 
@@ -26,3 +30,4 @@
 "school_detail_item_math" = "Math Avg: %d";
 "school_detail_item_writing" = "Writing Avg: %d";
 "school_detail_contact_us" = "Contact Us";
+"school_detail_school_contact" = "School contacts";

@@ -17,7 +17,7 @@ class SchoolDetailsViewModel: ObservableObject {
     // MARK: - Properties
     @Published private(set) var state: UIState!
     private var subscribers: [AnyCancellable] = []
-    private var school: SchoolModel! {
+    private(set) var school: SchoolModel! {
         didSet { state = .ready(school: school) }
     }
     

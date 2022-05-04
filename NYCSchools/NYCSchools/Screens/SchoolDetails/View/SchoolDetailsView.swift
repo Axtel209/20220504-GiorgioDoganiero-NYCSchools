@@ -33,7 +33,7 @@ class SchoolDetailsView: UIView {
         var config = UIButton.Configuration.filled()
         config.buttonSize = .small
         config.baseBackgroundColor = .white
-        config.baseForegroundColor = .label
+        config.baseForegroundColor = .black
         config.image = UIImage(systemName: "mappin")
         config.imagePlacement = .leading
         config.imagePadding = 4

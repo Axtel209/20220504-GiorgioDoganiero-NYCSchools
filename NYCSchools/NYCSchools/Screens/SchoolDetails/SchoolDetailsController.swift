@@ -25,6 +25,7 @@ class SchoolDetailsController: MVVMViewController<SchoolDetailsViewModel, School
     private func setupViews() {
         customView.closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchUpInside)
         customView.addressButton.addTarget(self, action: #selector(addressButtonAction), for: .touchUpInside)
+        customView.contactButton.addTarget(self, action: #selector(contactButtonAction), for: .touchUpInside)
     }
     
     private func bindViewModel() {
@@ -69,5 +70,51 @@ class SchoolDetailsController: MVVMViewController<SchoolDetailsViewModel, School
     
     @objc private func addressButtonAction(_ sender: UIButton) {
         viewModel.openMaps()
+    }
+    
+    @objc private func contactButtonAction(_ sender: UIButton) {
+        let alert = buildContactAlert()
+        present(alert, animated: true)
+    }
+    
+    // MARK: - Helper
+    
+    private func buildContactAlert() -> UIAlertController {
+        let alert = UIAlertController(title: nil,
+                                      message: "school_detail_school_contact".localized,
+                                      preferredStyle: .actionSheet)
+        
+        // Phone number always return a non empty String but must double check
+        let phone = viewModel.school.phoneNumber
+        if !phone.isEmpty, let url = URL(string: "tel://" + phone), UIApplication.shared.canOpenURL(url) {
+            let actionCall = UIAlertAction(title: "common_call".localized, style: .default) { _ in
+                UIApplication.shared.open(url)
+            }
+            alert.addAction(actionCall)
+        }
+        
+        // validate email
+        if let email = viewModel.school.email, let url = URL(string: "mailto:\(email)"), UIApplication.shared.canOpenURL(url) {
+            let actionEmail = UIAlertAction(title: "common_email".localized, style: .default) { _ in
+                UIApplication.shared.open(url)
+            }
+            alert.addAction(actionEmail)
+        }
+        
+        // Website alwyas return a non empty String but must double check
+        // TODO: Given more time I would prefer to validate and modify websites prefixes to open all sorts of links form API
+        let website = viewModel.school.website
+        if !website.isEmpty, let url = URL(string: "https://" + website), UIApplication.shared.canOpenURL(url) {
+            let actionWebsite = UIAlertAction(title: "common_website".localized, style: .default) { _ in
+                UIApplication.shared.open(url)
+            }
+            alert.addAction(actionWebsite)
+        }
+        
+        let actionCancel = UIAlertAction(title: "common_cancel".localized, style: .cancel)
+        
+        
+        alert.addAction(actionCancel)
+        return alert
     }
 }
