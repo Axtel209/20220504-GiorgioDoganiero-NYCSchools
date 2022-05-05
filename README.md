@@ -7,7 +7,7 @@ This is an mobile client application for  [NYCSchools](https://data.cityofnewyor
 
 Getting started with NYC Schools for iOS project.
 
-1.  Clone FlipaClip repo project.
+1.  Clone NYCSChools repo project.
 2.  Navigate to  **NYCSchools**.
 3.  Open workspace project file  **NYCSchools.xcodeproj**.
 4.  Build and done!
